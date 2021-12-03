@@ -24,7 +24,7 @@ $(document).ready(function () {
                 responsive: true,
                 "ajax": {
 
-                    "url": "/api/ListTeams?type=List&Tenantfilter=" + TenantID,
+                    "url": "/api/ListTeamsVoice?&Tenantfilter=" + TenantID,
                     "dataSrc": "",
                 },
                 dom: 'fBlrtip',
@@ -35,23 +35,23 @@ $(document).ready(function () {
                     { extend: 'pdfHtml5', className: 'btn btn-primary btn-sm', orientation: 'landscape', title: 'Teams List - ' + TenantID + " - " + todayDate, exportOptions: { columns: [0, 1, 2, 3] } },
                 ],
                 "columns": [
-                    { "data": "displayName" },
-                    { "data": "description" },
-                    { "data": "visibility" },
-                    { "data": "mailNickname" },
+                    { "data": "AssignedTo" },
+                    { "data": "TelephoneNumber" },
+                    { "data": "NumberType" },
+                    { "data": "IsoCountryCode" },
+                    { "data": "PlaceName" },
+                    { "data": "ActivationState" },
+                    { "data": "IsOperatorConnect" },
+                    { "data": "AcquisitionDate" },
                     {
                         "data": "id",
                         render: function (id, type, row) {
                             var tblmenu = `
                             <div class="dropdown">
-
                                 <i class="fas fa-bars dropdown-toggle text-primary" data-bs-toggle="dropdown" style="cursor:hand;"></i>
                                 <ul class="dropdown-menu" style="min-width:260px;">
-                                    <li><a class="dropdown-item" href=index.html?page=ViewTeam&Tenantfilter=${TenantID}&GroupID=${id}><i data-bs-toggle="tooltip" data-bs-placement="top" title="View Team settings" class="fas fa-eye fa-fw"></i>View Team Settings</a></li>
-                                    <li><a class="dropdown-item" href=index.html?page=EditGroup&Tenantfilter=${TenantID}&GroupID=${id}><i data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Group" class="fas fa-cog fa-fw"></i>Edit Group members</a></li>
-                                    <nothing class="APILink">
-                                    <li><a disabled class="dropdown-item" actionname="Delete ${row.displayName}" href=api/RemoveUser?TenantFilter=${TenantID}&ID=${id}><i data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Team" class="fas fa-user-times fa-fw"></i></i>Delete Team</a></nothing></li>
-                                    </nothing>
+                                    <li><a class="dropdown-item disabled"  href=index.html?page=ViewTeam&Tenantfilter=${TenantID}&GroupID=${id}><i data-bs-toggle="tooltip" data-bs-placement="top" title="View Team settings" class="fas fa-eye fa-fw"></i>No Actions Available</a></li>
+                                   </nothing>
                                     </ul>
 
                             </div>`
