@@ -24,3 +24,7 @@ yarn-error.log*
 __*
 .next/*
 .claude/
+
+# AI assistant config
+CLAUDE.md
+.claude/
